@@ -1,0 +1,11 @@
+{
+    "ts3_host": "localhost",
+    "ts3_port": "9987",
+    "ts3_query_port": "10011",
+    "ts3_query_login_name": "example",
+    "ts3_query_login_password": "secret",
+    "steam_to_ts_mapping": {
+        "46564198230576902": "Peter",
+        "46561598032676402": "Hans"
+    }
+}

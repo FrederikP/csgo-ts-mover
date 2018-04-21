@@ -1,0 +1,24 @@
+language: c
+    
+before_install:
+    - sudo apt-get update
+    - sudo apt-get install gcc-multilib
+    - sudo apt-get install lynx
+    - sudo apt-get install lib32stdc++6
+
+before_script:
+    - SMPATTERN="http:.*sourcemod-.*-linux.*"
+    - SMURL="http://www.sourcemod.net/smdrop/1.8/"
+    - SMPACKAGE=`lynx -dump "$SMURL" | egrep -o "$SMPATTERN" | tail -1`
+    - wget $SMPACKAGE
+    - tar -xzf $(basename "$SMPACKAGE")
+    - cp ts-mover.sp addons/sourcemod/scripting/
+    - cd addons/sourcemod/scripting/
+    - chmod +x spcomp
+    - chmod +x compile.sh
+
+script: 
+    - ./compile.sh
+
+after_script:
+    - ls ../plugin

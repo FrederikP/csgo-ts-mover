@@ -25,6 +25,7 @@ Basically the information flow for team changes looks like this:
   - obtained from releases page https://github.com/FrederikP/csgo-ts-mover/releases 
   - or by compiling from yourself
 - ts-mover.cfg
+  - should be in csgo/csgo/cfg/sourcemod
   - is automatically created on first start of sourcemod plugin
   - allows changing http endpoint for communication with service
   - sm_ts_mover_endpoint defaults to http://localhost:6666

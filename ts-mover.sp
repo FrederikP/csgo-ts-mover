@@ -35,14 +35,8 @@ public void OnPluginStart()
     {
         SetFailState("This plugin is for CSGO/CSS only.");	
     }
-    g_cvEnabled = FindConVar("ts_mover_enabled");
-    if (g_cvEnabled == null) {
-        g_cvEnabled = CreateConVar("ts_mover_enabled", "1", "Team updates will be sent to web service.");
-    }
-    g_cvEndpoint = FindConVar("ts_mover_endpoint");
-    if (g_cvEndpoint == null) {
-        g_cvEndpoint = CreateConVar("ts_mover_endpoint", "http://localhost:6666", "Team updates will be sent to web service.");
-    }
+    g_cvEnabled = CreateConVar("sm_ts_mover_enabled", "1", "Team updates will be sent to web service.");
+    g_cvEndpoint = CreateConVar("sm_ts_mover_endpoint", "http://localhost:6666", "Team updates will be sent to web service.");
     
     HookEvent("round_start", Event_RoundStart);
     

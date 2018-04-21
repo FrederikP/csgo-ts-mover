@@ -20,12 +20,12 @@ before_script:
 script:
 - "./compile.sh"
 after_script:
-- ls
+- ls compiled
 deploy:
   provider: releases
   api_key:
     secure: MXwS0TBvuGM+VahPTYrxmdJY/K2EyIOikDr/Z9yMcdI2yui7Y6T659X0Vm2Tv2/ntcBNuuBd67IeTuDToY47/VduhPdfnfpQ/4xtBkLQhoXNm2wlmWHHA7T1ISFdcxkj9QceyKvqqlnd2mSftDTZ6Htt1paKX8JhLnJDDce2VTFasXkUiHTqaq5xhx8sE5nkY5//fa6mAIElUQCTumM7+BHSWXj+AgqCXeLlysa0S9SyrHBR4NbFq8mnlK0N1QgXOug9j9NoLug5EDfKcoIg6zdG/oa7rIAAEIcDaA4VSGujG98CHcIGwbTjHJ7XNUK7sPoO03cxDe+HiRUBg3G92vcXFX0z8NhoxbFtkWZKtlrf+g77kiI51pNjZl4Bew/+BiFxbsH6zqSFgXoCNBGee+Fl9uXsj/QEeMrwY5CcxclaKLsitV6oitf2PnaPD0xmjndw//MOrA19JsMUrBc8zSpkUH0yUoU76ZT3KCPaFMXpdZQBtskFpjgSq9ILVOq9sUuVtAmt7ftIf9OcFvSZfejauJTgaLapVMH4HQWrDkna9EFoKi0pjubo38CGDaDOlXQJU3unkgjN4JOn2wqAWxcn9hMVCUM+yLY5fjDAGxX6HUvzaJwCRKgsx45UwvEotHwlVMACCz98WXqQKY0pqHuSTuVRFqKA0Pdre3xOjLM=
-  file: ts-mover.smx
+  file: addons/sourcemod/scripting/compiled/ts-mover.smx
   on:
     repo: FrederikP/csgo-ts-mover
     tags: true

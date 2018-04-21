@@ -30,6 +30,8 @@ with ts3.query.TS3Connection(config['ts3_host'], config['ts3_query_port']) as ts
             ct_cid = channel['cid']
         if channel['channel_name'] == config['channel_names']['t']:
             t_cid = channel['cid']
+        if channel['channel_name'] == config['channel_names']['lobby']:
+            lobby_cid = channel['cid']
 
 if not ct_cid or not t_cid:
     print('Did not find CT or T ts channel')
@@ -40,7 +42,7 @@ steam_to_ts_mapping = config['steam_to_ts_mapping']
 app = Flask('ts-mover')
 
 def move_to(steam_ids, ts_cid):
-    with ts3.query.TS3Connection(TS3_HOST, TS3_PORT) as ts3conn:
+    with ts3.query.TS3Connection(config['ts3_host'], config['ts3_query_port']) as ts3conn:
         init_ts3_conn(ts3conn)
         clientlist = ts3conn.clientlist()
         for steam_id in steam_ids:
@@ -66,8 +68,10 @@ def update():
     ts = data['ts']
     cts = data['cts']
     num = len(ts) + len(cts)
-    if num >= 4:
+    if num >= config['lobby_threshold']:
         move_to(ts, t_cid)
         move_to(cts, ct_cid)
+    else:
+        move_to(ts+cts, lobby_cid)
 
     return 'success'

@@ -13,6 +13,8 @@ before_script:
     - SMFILE=$(wget ${SMPACKAGE} -q -O -)
     - wget "${SMURL}${SMFILE}"
     - tar -xzf $SMFILE
+    - wget https://github.com/ErikMinekus/sm-ripext/releases/download/1.0.3/sm-ripext-1.0.3-linux.tar.gz
+    - tar -xzf sm-ripext-1.0.3-linux.tar.gz
     - cp ts-mover.sp addons/sourcemod/scripting/
     - cd addons/sourcemod/scripting/
     - chmod +x spcomp

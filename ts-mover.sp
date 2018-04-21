@@ -25,7 +25,7 @@ public Plugin myinfo =
 	author = PLUGIN_AUTHOR,
 	description = "Allows moving players to teamspeak channels according to teams. Only works with appropiate web service.",
 	version = PLUGIN_VERSION,
-	url = ""
+	url = "https://github.com/FrederikP/csgo-ts-mover"
 };
 
 public void OnPluginStart()
@@ -48,7 +48,12 @@ public void OnPluginStart()
 	
 	AutoExecConfig(name = "ts_mover");
 	
-	g_httpClient = = new HTTPClient(g_cvEndpoint.StringValue);
+	g_httpClient = new HTTPClient(g_cvEndpoint.StringValue);
+	g_cvEndpoint.AddChangeHook(OnEndpointChange)
+}
+
+public void OnEndpointChange(ConVar convar, char[] oldValue, char[] newValue) {
+	g_httpClient = new HTTPClient(newValue);
 }
 
 public Action Event_RoundStart(Handle event, const char[] name, bool dontBroadcast) {
@@ -69,8 +74,7 @@ public Action Event_RoundStart(Handle event, const char[] name, bool dontBroadca
 	    JSONObject resultObject = new JSONObject();
 	    resultObject.Set("cts", cts);
 	    resultObject.Set("ts", ts);
-	    
-	    HTTPClient httpClient = new HTTPClient(g_cvEndpoint.StringValue);
+
 	    httpClient.Post("teams", resultObject, OnTeamsSent);
 	}
 }

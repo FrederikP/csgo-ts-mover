@@ -26,9 +26,9 @@ with ts3.query.TS3Connection(config['ts3_host'], config['ts3_query_port']) as ts
     init_ts3_conn(ts3conn)
     resp = ts3conn.channellist()
     for channel in resp:
-        if channel['channel_name'] == 'CT':
+        if channel['channel_name'] == config['channel_names']['ct']:
             ct_cid = channel['cid']
-        if channel['channel_name'] == 'T':
+        if channel['channel_name'] == config['channel_names']['t']:
             t_cid = channel['cid']
 
 if not ct_cid or not t_cid:

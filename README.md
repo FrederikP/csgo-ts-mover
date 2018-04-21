@@ -51,9 +51,11 @@ flask run --port 6666
 Use screen, or docker, or whatever to keep it running.
 
 # Things to note
-- If the teamspeak server is running on a different host than the web service, then the IP of the web service should be whitelisted in teamspeak. For mor see the teamspeak query docs.
+- If the teamspeak server is running on a different host than the web service, then the IP of the web service should be whitelisted in teamspeak. For more see the teamspeak query docs.
 - If you need authentication and encryption for the web service, use a web server like nginx or apache to proxy traffic
-- I use docker to run the csgo servers as well as the service and it makes things a lot easier
+- I use docker to run the csgo servers as well as the service and it makes things a lot easier. I see the following advantages:
+  - Isolation (well duh) - Actually run multiple csgo servers on one host without getting confused
+  - Reproducabilty (very important when trying to figure out to run many different plugins)
 
 # Future ideas
 - Allow mapping configuration using chat commands in csgo

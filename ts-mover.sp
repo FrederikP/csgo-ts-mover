@@ -3,7 +3,7 @@
 #define DEBUG
 
 #define PLUGIN_AUTHOR "Frederik Petersen"
-#define PLUGIN_VERSION "0.01"
+#define PLUGIN_VERSION "0.1.0"
 
 #include <sourcemod>
 #include <sdktools>

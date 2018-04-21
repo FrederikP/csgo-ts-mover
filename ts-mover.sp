@@ -48,8 +48,8 @@ public void OnPluginStart()
 	
 	AutoExecConfig(true, "ts_mover");
 	
-	g_httpClient = new HTTPClient(g_cvEndpoint.StringValue);
-	g_cvEndpoint.AddChangeHook(OnEndpointChange)
+	g_httpClient = new HTTPClient(g_cvEndpoint.GetString());
+	g_cvEndpoint.AddChangeHook(OnEndpointChange);
 }
 
 public void OnEndpointChange(ConVar convar, char[] oldValue, char[] newValue) {
@@ -75,7 +75,7 @@ public Action Event_RoundStart(Handle event, const char[] name, bool dontBroadca
 	    resultObject.Set("cts", cts);
 	    resultObject.Set("ts", ts);
 
-	    httpClient.Post("teams", resultObject, OnTeamsSent);
+	    g_httpClient.Post("teams", resultObject, OnTeamsSent);
 	}
 }
 

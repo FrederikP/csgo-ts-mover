@@ -49,7 +49,7 @@ public void OnPluginStart()
 	AutoExecConfig(true, "ts_mover");
 	char sBuf[128];
 	g_cvEndpoint.GetString(sBuf, sizeof(sBuf));
-	g_httpClient = new HTTPClient(sBuf));
+	g_httpClient = new HTTPClient(sBuf);
 	g_cvEndpoint.AddChangeHook(OnEndpointChange);
 }
 

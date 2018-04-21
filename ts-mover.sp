@@ -47,8 +47,9 @@ public void OnPluginStart()
 	HookEvent("round_start", Event_RoundStart);
 	
 	AutoExecConfig(true, "ts_mover");
-	
-	g_httpClient = new HTTPClient(g_cvEndpoint.GetString());
+	char sBuf[128];
+	g_cvEndpoint.GetString(sBuf, sizeof(sBuf));
+	g_httpClient = new HTTPClient(sBuf));
 	g_cvEndpoint.AddChangeHook(OnEndpointChange);
 }
 

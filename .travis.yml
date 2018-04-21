@@ -10,8 +10,9 @@ before_script:
     - SMPATTERN="http:.*sourcemod-.*-linux.*"
     - SMURL="http://www.sourcemod.net/smdrop/1.8/"
     - SMPACKAGE=`lynx -dump "$SMURL" | egrep -o "$SMPATTERN" | tail -1`
-    - wget $SMPACKAGE
-    - tar -xzf $(basename "$SMPACKAGE")
+    - SMFILE=$(wget ${SMPACKAGE} -q -O -)
+    - wget "${SMURL}${SMFILE}"
+    - tar -xzf $SMFILE
     - cp ts-mover.sp addons/sourcemod/scripting/
     - cd addons/sourcemod/scripting/
     - chmod +x spcomp

@@ -1,0 +1,32 @@
+### Teamspeak host
+ts3_host: localhost
+
+### Port (udp) of the teamspeak server
+ts3_port: '9987'
+
+### Query port (tcp) of the teamspeak server
+ts3_query_port: '10011'
+
+### Query login name to use for sending commands to teamspeak
+ts3_query_login_name: example
+
+### Query login password to use for sending commands to teamspeak
+ts3_query_login_password: secret
+
+### Channel mapping using teamspeak channel ids (cid)
+### Use a tool like YaTQA to find out cid for a channel
+channel_ids:
+  ct: '3'
+  t: '4'
+  lobby: '2'
+
+### Minimum number of players to start putting players in t and ct channels
+### if the number of players is lower, players are moved to lobby channel
+lobby_threshold: 4
+
+### Maps steam ids to teamspeak client unique ids (cluid)
+steam_to_ts_mapping:
+  # Hans
+  '46564198230576902': P5H2hrN6+gpQI4n/dXp3p17vtY0=
+  # Peter
+  '46561598032676402': yXM6PUfbCcPU+joxIFek1xOQwwQ=

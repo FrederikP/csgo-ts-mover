@@ -15,7 +15,7 @@ Basically the information flow for team changes looks like this:
 
 - Sourcemod (https://www.sourcemod.net/downloads.php)
 - RipExt (https://github.com/ErikMinekus/sm-ripext)
-- Python3 (with the following libraries: flask, ts3; I recommend using virtualenv to isolate the runtime environment)
+- Python3 (with the following libraries: flask, ts3, PyYAML; I recommend using virtualenv to isolate the runtime environment)
 - Teamspeak with Query Login Credentials
 
 ### Essential Files
@@ -31,7 +31,7 @@ Basically the information flow for team changes looks like this:
   - sm_ts_mover_endpoint defaults to http://localhost:6666
 - ts-mover-service.py 
   - the web service that handles channel movement
-- ts-mover-service-config.json
+- ts-mover-service-config.yaml
   - should be in the folder you start the service in
   - main configuration file (example is in repository)
 

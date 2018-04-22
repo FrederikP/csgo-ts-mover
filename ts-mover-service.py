@@ -1,9 +1,9 @@
-import json
 import logging
 from logging.config import dictConfig
 from sys import exit
 
 import ts3
+import yaml
 from flask import Flask, request
 
 dictConfig({
@@ -24,8 +24,8 @@ dictConfig({
 
 logger = logging.getLogger(__name__)
 
-with open('ts-mover-service-config.json') as config_file:
-    config = json.load(config_file)
+with open('ts-mover-service-config.yaml') as config_file:
+    config = yaml.load(config_file)
 
 def init_ts3_conn(ts3conn):
     try:

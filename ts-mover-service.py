@@ -33,7 +33,7 @@ def init_ts3_conn(ts3conn):
            client_login_name=config['ts3_query_login_name'],
            client_login_password=config['ts3_query_login_password']
        )
-    except ts3.query.TS3QueryError as err:
+    except ts3.query.TS3QueryError:
        logger.fatal("Login failed.", exc_info=True)
        exit(1)
 
@@ -52,7 +52,6 @@ logger.info('TS Mover is running')
 def move_to(steam_ids, ts_cid):
     with ts3.query.TS3Connection(config['ts3_host'], config['ts3_query_port']) as ts3conn:
         init_ts3_conn(ts3conn)
-        clientlist = ts3conn.clientlist()
         for steam_id in steam_ids:
             if steam_id not in steam_to_ts_mapping:
                 logger.warning('Need TS mapping for steam id: %s', steam_id)

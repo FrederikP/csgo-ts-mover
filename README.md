@@ -39,8 +39,8 @@ Basically the information flow for team changes looks like this:
 
 - put ts-mover.smx (see Releases) into the plugins folder of your sourcemod installation
 - customize your configuration
-  - the mapping maps steamid -> teamspeak nickname
-  - channel names take care of where players are put
+  - the mapping maps steamid -> teamspeak client unique id (cluid; looks like this: yXM6PUfbCcPU+joxIFek1xOQwwQ=)
+  - channel ids take care of where players are put (ids cannot be found in teamspeak client, use a tool like YaTQA)
   - lobby threshold determines the minimum number to swap players into the t and ct channels
 - start the service (config file should be in the same folder):
 

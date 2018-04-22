@@ -49,6 +49,8 @@ FLASK_APP=ts-mover-service.py
 flask run --port 6666
 ```
 
+Note: If you want need the service to listen on other interfaces (default is localhost) use --host 0.0.0.0 or --host <IP> .
+
 Use screen, or docker, or whatever to keep it running.
 
 # Things to note

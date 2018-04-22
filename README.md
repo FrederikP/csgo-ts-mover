@@ -45,7 +45,7 @@ Basically the information flow for team changes looks like this:
 - start the service (config file should be in the same folder):
 
 ```
-FLASK_APP=ts-mover-service.py
+export FLASK_APP=ts-mover-service.py
 flask run --port 6666
 ```
 

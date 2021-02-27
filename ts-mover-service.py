@@ -63,10 +63,15 @@ def move_to(steam_ids, ts_cid):
                 continue
             clid = clid_result[0]['clid']
             info = ts3conn.clientinfo(clid=clid)[0]
-            if info['cid'] != ts_cid:
-                nickname = info['client_nickname']
-                logger.info('Moving %s to other channel', nickname)
-                ts3conn.clientmove(cid=ts_cid, clid=clid)
+            current_channel = info['cid']
+            if current_channel == ts_cid:
+                continue
+            if current_channel != lobby_cid and current_channel != ct_cid and current_channel != t_cid
+                logger.info('Client %s was not in the lobby or one of the team channels and will not be moved', cluid)
+                continue
+            nickname = info['client_nickname']
+            logger.info('Moving %s to other channel', nickname)
+            ts3conn.clientmove(cid=ts_cid, clid=clid)
 
 
 @app.route("/teams", methods=['POST'])

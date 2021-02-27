@@ -66,7 +66,7 @@ def move_to(steam_ids, ts_cid):
             current_channel = info['cid']
             if current_channel == ts_cid:
                 continue
-            if current_channel != lobby_cid and current_channel != ct_cid and current_channel != t_cid
+            if current_channel != lobby_cid and current_channel != ct_cid and current_channel != t_cid:
                 logger.info('Client %s was not in the lobby or one of the team channels and will not be moved', cluid)
                 continue
             nickname = info['client_nickname']
